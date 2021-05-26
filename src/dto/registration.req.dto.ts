@@ -1,4 +1,4 @@
-export class RegistrationReqModel {
+export class RegistrationReqDto {
     firstName: string;
     lastName: string;
     email: string;

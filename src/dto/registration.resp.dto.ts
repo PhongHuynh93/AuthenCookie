@@ -1,4 +1,4 @@
-export class RegistrationRespModel {
+export class RegistrationRespDto {
     successStatus: boolean;
     message: string;
 }
