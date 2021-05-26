@@ -4,7 +4,7 @@ import { RegistrationReqDto } from 'src/dto/registration.req.dto';
 import { UsersRepository } from './users.repository';
 import { RegistrationRespDto } from '../dto/registration.resp.dto';
 import * as bcrypt from 'bcrypt'
-import { User } from './user';
+import { User } from './user.entity';
 
 @Injectable()
 export class UsersService {
