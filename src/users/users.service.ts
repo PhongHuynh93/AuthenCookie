@@ -11,14 +11,8 @@ export class UsersService {
     ) { }
 
     private async registrationValidation(regModel: RegistrationReqDto): Promise<string> {
-        if (!regModel.email) {
-            return "Email can't be empty";
-        }
-
-        const emailRule =
-            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        if (!emailRule.test(regModel.email.toLowerCase())) {
-            return 'Invalid email';
+        if (regModel.password !== regModel.confirmPassword) {
+            return 'Confirm password not matching';
         }
 
         const user = await this.usersRepository.findOne({ email: regModel.email });
@@ -26,9 +20,6 @@ export class UsersService {
             return 'Email already exist';
         }
 
-        if (regModel.password !== regModel.confirmPassword) {
-            return 'Confirm password not matching';
-        }
         return '';
     }
 }
